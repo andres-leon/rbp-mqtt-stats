@@ -32,9 +32,6 @@ diskusage =  psutil.disk_usage('/').percent
 
 
 payload = { 'datetimedatacollected': currtime, 'cpuusage': cpupercent, 'boottime': boottime, 'virtualmem': vmem, 'diskusage': diskusage, 'cputemp': cputemp }
-#payload = { 'properties': [{ 'testitem': 'test message.', 'boottime': boottime }] }
-#payload = { [{ 'testitem': 'test message.', 'boottime': boottime }] }
-#payload = {'bootime:' + boottime }
 
 mqtthost = <redacted mqtt broker address>
 mqttuser = <redacted mqtt user name>
