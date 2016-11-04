@@ -25,7 +25,7 @@ python /home/pi/systemdata.py
 
 it should output something like this:
 
-{"datetimedatacollected": "2016-11-04 14:23:39", "cpuusage": 0.0, "virtualmem": 15.8, "boottime": "2016-11-04 11:33:47", "cputemp": 132.8, "diskusage": 38.6}
+{"datetimedatacollected": "2016-11-04 14:23:39", "cpuusage": 2.3, "virtualmem": 15.8, "boottime": "2016-11-04 11:33:47", "cputemp": 132.8, "diskusage": 38.6}
 
 # STEP 4 - add the script as a cron job
 
