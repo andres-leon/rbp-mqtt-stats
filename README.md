@@ -13,6 +13,10 @@ sudo pip install paho-mqtt
 
 sudo pip install psutil
 
+# STEP 1.a Reboot
+
+sudo reboot
+
 # STEP 2 - Copy the systemdata.py file
 
 # STEP 3 - Run the file and make sure your see data printed on the terminal as a valid JSON dictionary.
