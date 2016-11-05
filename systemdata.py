@@ -1,3 +1,4 @@
+
 #References: Thanks to these resoruces!
 #http://www.isendev.com/app/entry/39
 #https://pythonhosted.org/psutil/
@@ -29,7 +30,7 @@ topic = "rbp2_catfeeder/systemstatus"
 cpupercent = psutil.cpu_percent(interval=1)
 vmem = psutil.virtual_memory().percent
 diskusage =  psutil.disk_usage('/').percent
-
+disctotal = psutil.disk_usage('/').total
 
 payload = { 'datetimedatacollected': currtime, 'cpuusage': cpupercent, 'boottime': boottime, 'virtualmem': vmem, 'diskusage': diskusage, 'cputemp': cputemp }
 
