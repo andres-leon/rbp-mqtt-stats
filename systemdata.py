@@ -30,9 +30,9 @@ topic = "rbp2_catfeeder/systemstatus"
 cpupercent = psutil.cpu_percent(interval=1)
 vmem = psutil.virtual_memory().percent
 diskusage =  psutil.disk_usage('/').percent
-disctotal = psutil.disk_usage('/').total
+disktotal = psutil.disk_usage('/').total
 
-payload = { 'datetimedatacollected': currtime, 'cpuusage': cpupercent, 'boottime': boottime, 'virtualmem': vmem, 'diskusage': diskusage, 'cputemp': cputemp }
+payload = { 'datetimedatacollected': currtime, 'cpuusage': cpupercent, 'boottime': boottime, 'virtualmem': vmem, 'diskusage': diskusage, 'cputemp': cputemp, 'disktotal': disktotal }
 
 mqtthost = <redacted mqtt broker address>
 mqttuser = <redacted mqtt user name>
