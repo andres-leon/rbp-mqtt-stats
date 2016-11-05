@@ -18,6 +18,19 @@ def getCPUtemperature():
         except:
                 return 0
 
+def bytes2human(n):
+# http://code.activestate.com/recipes/577972-disk-usage/
+    symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+    prefix = {}
+    for i, s in enumerate(symbols):
+        prefix[s] = 1 << (i+1)*10
+    for s in reversed(symbols):
+        if n >= prefix[s]:
+            value = float(n) / prefix[s]
+            return '%.1f%s' % (value, s)
+    return "%sB" % n
+
+        
 temp1 = int(float(getCPUtemperature()))
 cputemp = 9.0/5.0*temp1+32
 
@@ -25,14 +38,17 @@ currtime = strftime("%Y-%m-%d %H:%M:%S")
 
 boottime = datetime.datetime.fromtimestamp(psutil.boot_time()).strftime("%Y-%m-%d %H:%M:%S")
 
-topic = "rbp2_catfeeder/systemstatus"
+topic = <readacted topic to publish data>
 
 cpupercent = psutil.cpu_percent(interval=1)
 vmem = psutil.virtual_memory().percent
 diskusage =  psutil.disk_usage('/').percent
-disktotal = psutil.disk_usage('/').total
+disktotal = bytes2human( psutil.disk_usage('/').total )
 
-payload = { 'datetimedatacollected': currtime, 'cpuusage': cpupercent, 'boottime': boottime, 'virtualmem': vmem, 'diskusage': diskusage, 'cputemp': cputemp, 'disktotal': disktotal }
+payload = { 'datetimedatacollected': currtime,
+ 'cpuusage': cpupercent, 'boottime': boottime,
+ 'virtualmem': vmem, 'diskusage': diskusage,
+ 'cputemp': cputemp, 'disktotal': disktotal }
 
 mqtthost = <redacted mqtt broker address>
 mqttuser = <redacted mqtt user name>
